@@ -311,7 +311,7 @@ def loadDefaultSplunkVariables():
             loaded_yaml = yaml.load(yaml_file, Loader=yaml.Loader)
 
     ### Load the defaults for the environment
-    if "config" in loaded_yaml and loaded_yaml["config"] is not None and "baked" in loaded_yaml["config"]:
+    if "config" in loaded_yaml and loaded_yaml["config"] is not None and "baked" in loaded_yaml["config"] and loaded_yaml["config"]["baked"] is not None:
         for f in loaded_yaml["config"]["baked"].split(','):
             full_path = os.path.join(loaded_yaml["config"]["defaults_dir"], f.strip())
             if os.path.exists(full_path):
